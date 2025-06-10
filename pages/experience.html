@@ -3,151 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experience - Fang Liu Portfolio</title>
+    <title>Experience - Fang Liu</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <script defer src="../scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Header -->
     <header>
-        <div class="header-container">
-            <a href="../index.html" class="logo">Fang Liu</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="education.html">Education</a></li>
-                    <li><a href="experience.html" class="active">Experience</a></li>
-                    <li><a href="hobbies.html">Hobbies</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle">Dark Mode</button>
+        <div class="container">
+            <div class="header-container">
+                <a href="../index.html" class="logo">Fang Liu</a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="experience.html" class="active">Experience</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <h1>Professional Experience</h1>
-        <p>Building skills through academic and industry experience</p>
-    </section>
-
-    <main>
-        <section id="work-experience" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Work Experience</h2>
-            </div>
+    <!-- Experience Section -->
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Experience & Education</h1>
+            <p class="section-subtitle">My professional journey and academic background</p>
             
             <div class="timeline">
-                <!-- Teaching Assistant Experience -->
+                <!-- Teaching Assistant -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">September 2024 - December 2024</span>
+                        <span class="timeline-date">Sep 2024 - Dec 2024</span>
                         <h3 class="timeline-title">Programming Fundamentals Teaching Assistant</h3>
-                        <h4 class="timeline-subtitle">Northeastern University</h4>
-                        <ul>
-                            <li>Mentored 50+ students in Python-based assignments, enhancing mastery of data structures (e.g., binary trees, hash tables) through tailored code reviews</li>
-                            <li>Enhanced student performance by 20% through interactive debugging sessions on recursion and dynamic programming</li>
-                            <li>Facilitated weekly lab sessions focused on algorithm implementation and problem-solving techniques</li>
-                            <li>Provided constructive feedback on assignments, helping students improve code efficiency and readability</li>
-                            <li>Collaborated with course instructors to develop supplementary learning materials and practice exercises</li>
-                        </ul>
+                        <h4 class="timeline-company">Northeastern University</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Mentored 50+ students in Python-based assignments, enhancing mastery of data structures (binary trees, hash tables) through tailored code reviews</li>
+                                <li>Enhanced student performance by 20% through interactive debugging sessions on recursion and dynamic programming</li>
+                                <li>Facilitated weekly office hours focused on algorithm implementation and problem-solving techniques</li>
+                                <li>Provided constructive feedback on assignments, helping students improve code efficiency and readability</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Product Manager Experience -->
+                <!-- Master's Degree -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <span class="timeline-date">July 2021 - December 2023</span>
-                        <h3 class="timeline-title">Product Manager</h3>
-                        <h4 class="timeline-subtitle">FanShi (AI-driven medical technology company)</h4>
-                        <ul>
-                            <li>Collaborated with engineering teams on hospital management and AI diagnostic tools, aligning product requirements with market needs</li>
-                            <li>Used SQL and Python to analyze product usage data, driving a 15% increase in feature adoption</li>
-                            <li>Conducted User Acceptance Testing, resolving 30+ technical issues, improving product stability and user satisfaction</li>
-                            <li>Led feature prioritization sessions with stakeholders, balancing technical feasibility with business objectives</li>
-                            <li>Managed product roadmap for specialized medical software modules used by healthcare providers</li>
-                        </ul>
+                        <span class="timeline-date">Jan 2024 - Apr 2026 (Expected)</span>
+                        <h3 class="timeline-title">Master of Science in Computer Science</h3>
+                        <h4 class="timeline-company">Northeastern University</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Relevant Coursework: Scalable Distributed Systems, Web Development, Database Management Systems, Algorithms</li>
+                                <li>Focus Areas: Cloud Architecture, Full-Stack Development, Distributed Systems</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        
-        <section id="skills-certifications" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Skills & Certifications</h2>
-            </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto;">
-                <!-- Technical Skills -->
-                <div class="skill-card">
-                    <h3><i class="fas fa-laptop-code"></i> Technical Skills</h3>
-                    <ul class="skill-list">
-                        <li><strong>Programming Languages:</strong> Python, Java, Go, C, JavaScript</li>
-                        <li><strong>Web Development:</strong> React.js, Node.js, Express.js, HTML/CSS</li>
-                        <li><strong>Databases:</strong> MongoDB, DynamoDB, MySQL, Redis</li>
-                        <li><strong>DevOps:</strong> AWS, Docker, Terraform, Git, Kafka, Grafana</li>
-                        <li><strong>Cloud Services:</strong> Amazon Web Services (EC2, S3, Lambda)</li>
-                        <li><strong>Testing:</strong> JUnit, PyTest, Integration Testing</li>
-                    </ul>
-                </div>
-                
-                <!-- Soft Skills -->
-                <div class="skill-card">
-                    <h3><i class="fas fa-users"></i> Professional Skills</h3>
-                    <ul class="skill-list">
-                        <li><strong>Leadership:</strong> Team coordination, project management</li>
-                        <li><strong>Communication:</strong> Technical documentation, presentation skills</li>
-                        <li><strong>Problem Solving:</strong> Analytical thinking, debugging expertise</li>
-                        <li><strong>Collaboration:</strong> Cross-functional teamwork, peer code review</li>
-                        <li><strong>Time Management:</strong> Meeting deadlines, prioritizing tasks</li>
-                        <li><strong>Adaptability:</strong> Learning new technologies quickly</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Me</h3>
-                <p class="footer-about">Master's student in Computer Science at Northeastern University, passionate about building scalable and user-friendly applications.</p>
-                <div class="social-links">
-                    <a href="https://github.com/Qjr2023" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/fang0000" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:fang.liu@northeastern.edu"><i class="fas fa-envelope"></i></a>
+                <!-- Product Manager -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jul 2021 - Dec 2023</span>
+                        <h3 class="timeline-title">Product Manager</h3>
+                        <h4 class="timeline-company">FanShi (AI-driven Medical Technology)</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Collaborated with engineering teams on hospital management and AI diagnostic tools, aligning product requirements with market needs</li>
+                                <li>Used SQL and Python to analyze product usage data, driving a 15% increase in feature adoption</li>
+                                <li>Conducted User Acceptance Testing, resolving 30+ technical issues, improving product stability and user satisfaction</li>
+                                <li>Led feature prioritization sessions with stakeholders, balancing technical feasibility with business objectives</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="../index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> Education</a></li>
-                        <li><a href="experience.html"><i class="fas fa-chevron-right"></i> Experience</a></li>
-                        <li><a href="hobbies.html"><i class="fas fa-chevron-right"></i> Hobbies</a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Vancouver, BC, Canada</a></li>
-                        <li><a href="mailto:fang.liu@northeastern.edu"><i class="fas fa-envelope"></i> fang.liu@northeastern.edu</a></li>
-                        <li><a href="tel:+16728662259"><i class="fas fa-phone"></i> (672) 866-2259</a></li>
-                    </ul>
+
+                <!-- Bachelor's Degree -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2017 - Jun 2021</span>
+                        <h3 class="timeline-title">Bachelor of Science in Marine Technology</h3>
+                        <h4 class="timeline-company">Hebei University of Technology</h4>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Outstanding Graduate Award</li>
+                                <li>Academic Excellence Scholarship</li>
+                                <li>GPA: 3.5/4.0</li>
+                                <li>Developed strong analytical and problem-solving skills applicable to software engineering</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 Fang Liu. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/Qjr2023" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/fang0000" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="mailto:fang.liu@northeastern.edu">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+                <p>&copy; 2025 Fang Liu. Built with passion for great software.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="../scripts/streamlined-main.js"></script>
 </body>
 </html>

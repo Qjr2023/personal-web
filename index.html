@@ -3,210 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fang Liu | Portfolio</title>
+    <title>Fang Liu | Software Engineer</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script defer src="scripts/main.js"></script>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
+    <!-- Header -->
     <header>
-        <div class="header-container">
-            <a href="index.html" class="logo">Fang Liu</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/projects.html">Projects</a></li>
-                    <li><a href="pages/education.html">Education</a></li>
-                    <li><a href="pages/experience.html">Experience</a></li>
-                    <li><a href="pages/hobbies.html">Hobbies</a></li>
-                    <li><a href="pages/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <button id="theme-toggle">Dark Mode</button>
+        <div class="container">
+            <div class="header-container">
+                <a href="index.html" class="logo">Fang Liu</a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="pages/projects.html">Projects</a></li>
+                        <li><a href="pages/experience.html">Experience</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <h1>Hi, I'm Fang Liu</h1>
-        <p>Computer Science Master's Student & Software Engineer</p>
-        <div class="hero-buttons">
-            <a href="pages/projects.html" class="btn btn-primary">View My Projects</a>
-            <a href="pages/contact.html" class="btn btn-secondary">Contact Me</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fang Liu</h1>
+                <p class="hero-subtitle">Cloud & Full-Stack Engineer</p>
+                <p class="hero-description">
+                    Master's CS student at Northeastern University specializing in scalable cloud solutions 
+                    and modern web applications. Seeking SDE opportunities.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#featured-projects" class="btn btn-primary">
+                        <i class="fas fa-code"></i> View Projects
+                    </a>
+                    <a href="assets/Fang_Liu_Resume.pdf" class="btn btn-secondary" download>
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                    <a href="pages/contact.html" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Contact
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <main>
-        <section id="about" class="section">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <h2>Software Engineer with Cloud & Full-Stack Focus</h2>
+                <p>
+                    I'm passionate about building scalable, user-friendly applications that solve real-world problems. 
+                    With experience in both product management and software development, I bring a unique perspective 
+                    to creating efficient technical solutions.
+                </p>
+                <p>
+                    My expertise spans cloud infrastructure (AWS), distributed systems, and modern web frameworks. 
+                    I'm particularly interested in optimizing application performance and creating seamless user experiences.
+                </p>
             </div>
-            <div class="about">
-                <div class="about-image">
-                    <img src="images/profile.jpg" alt="Fang Liu's photo">
-                </div>
-                <div class="about-content">
-                    <h2>Software Engineer & CS Graduate Student</h2>
-                    <p>I am a passionate software engineer currently pursuing a Master's degree in Computer Science at Northeastern University. With a background in both product management and software development, I specialize in building scalable, user-friendly applications that solve real-world problems.</p>
-                    <p>My technical journey has led me to work on diverse projects ranging from high-performance distributed systems to AI-powered applications. I'm particularly interested in cloud architecture, distributed systems, and modern web development frameworks.</p>
-                    <p>Currently seeking SDE Co-op/Internship opportunities to apply my skills in a professional setting and contribute to innovative tech solutions.</p>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="skills" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Technical Skills</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill-card">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <ul class="skill-list">
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>Go</li>
-                        <li>C</li>
-                        <li>JavaScript</li>
-                    </ul>
+    <!-- Skills Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">Focused on Cloud Infrastructure, Full-Stack Development, and Scalable Systems</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">AWS (EC2, ALB, Lambda, DynamoDB)</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kafka/RebbitMQ</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Microservices</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-globe"></i> Web Development</h3>
-                    <ul class="skill-list">
-                        <li>React.js</li>
-                        <li>Node.js</li>
-                        <li>Express.js</li>
-                        <li>HTML/CSS</li>
-                    </ul>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Full-Stack Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">React.js</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">REST APIs</span>
+                    </div>
                 </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-database"></i> Databases</h3>
-                    <ul class="skill-list">
-                        <li>MongoDB</li>
-                        <li>DynamoDB</li>
-                        <li>MySQL</li>
-                        <li>Redis</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3><i class="fas fa-server"></i> DevOps</h3>
-                    <ul class="skill-list">
-                        <li>AWS</li>
-                        <li>Docker</li>
-                        <li>Terraform</li>
-                        <li>Git</li>
-                        <li>Kafka</li>
-                        <li>Grafana</li>
-                    </ul>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Backend & Data</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">MongoDB/MySQL</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="featured-projects" class="section">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card">
+    <!-- Featured Projects -->
+    <section id="featured-projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Click on any project to view details</p>
+            
+            <div class="featured-projects">
+                <a href="pages/projects.html#financial-platform" class="project-card">
                     <div class="project-image">
-                        <img src="images/project-financial.jpg" alt="Financial Asset Price Aggregation Platform">
+                        <img src="images/project-financial.jpg" alt="Financial Platform">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Financial Asset Price Aggregation Platform</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Go</span>
-                            <span class="project-tag">AWS</span>
-                            <span class="project-tag">Redis</span>
-                            <span class="project-tag">DynamoDB</span>
+                        <h3 class="project-title">Real-Time Financial Data Platform</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Go</span>
+                            <span class="tech-badge">AWS</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">Docker</span>
                         </div>
-                        <p class="project-description">High-performance distributed system for aggregating real-time price data for 1000+ financial assets with 49ms P99 latency and 8067 RPS throughput.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/YourUsername/financial-platform" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p class="project-description">
+                            High-performance distributed system achieving 49ms P99 latency and 8067 RPS for 1000+ assets.
+                        </p>
                     </div>
-                </div>
-                <div class="project-card">
+                </a>
+                
+                <a href="pages/projects.html#mood-companion" class="project-card">
                     <div class="project-image">
                         <img src="images/project-mood.png" alt="AI Mood Companion">
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">AI Mood Companion</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">MERN Stack</span>
-                            <span class="project-tag">Google Cloud NLP</span>
-                            <span class="project-tag">Chart.js</span>
-                            <span class="project-tag">Auth0</span>
+                        <div class="project-tech">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">Google NLP</span>
                         </div>
-                        <p class="project-description">Journal and mood tracking application with emotion analysis, data visualization, and community features.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/YourUsername/mood-companion" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p class="project-description">
+                            Full-stack journal app with emotion analysis and real-time community features.
+                        </p>
                     </div>
-                </div>
-                <div class="project-card">
+                </a>
+                
+                <a href="pages/projects.html#marketplace-scraper" class="project-card">
                     <div class="project-image">
-                        <img src="images/project-scraper.jpg" alt="Facebook Marketplace Scraper">
+                        <img src="images/project-scraper.jpg" alt="Marketplace Scraper">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Marketplace Scraper</h3>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Selenium</span>
-                            <span class="project-tag">BeautifulSoup</span>
-                            <span class="project-tag">Automation</span>
+                        <h3 class="project-title">Automated Marketplace Scraper</h3>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Selenium</span>
+                            <span class="tech-badge">BeautifulSoup</span>
                         </div>
-                        <p class="project-description">Automated web scraper using Python, Selenium, and BeautifulSoup that bypasses anti-scraping mechanisms by simulating human-like behavior.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/YourUsername/marketplace-scraper" class="project-link"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
+                        <p class="project-description">
+                            Web automation tool that increased lead processing efficiency by 60%.
+                        </p>
                     </div>
-                </div>
-            </div>
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="pages/projects.html" class="btn btn-primary">View All Projects</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Me</h3>
-                <p class="footer-about">Master's student in Computer Science at Northeastern University, passionate about building scalable and user-friendly applications.</p>
-                <div class="social-links">
-                    <a href="https://github.com/Qjr2023" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/fang0000" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:fang.liu@northeastern.edu"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="pages/projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
-                        <li><a href="pages/education.html"><i class="fas fa-chevron-right"></i> Education</a></li>
-                        <li><a href="pages/experience.html"><i class="fas fa-chevron-right"></i> Experience</a></li>
-                        <li><a href="pages/hobbies.html"><i class="fas fa-chevron-right"></i> Hobbies</a></li>
-                        <li><a href="pages/contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <div class="footer-links">
-                    <ul>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Vancouver, BC, Canada</a></li>
-                        <li><a href="mailto:fang.liu@northeastern.edu"><i class="fas fa-envelope"></i> fang.liu@northeastern.edu</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> (672) 866-2259</a></li>
-                    </ul>
-                </div>
+                </a>
             </div>
         </div>
-        <div class="footer-copyright">
-            <p>&copy; 2025 Fang Liu. All rights reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/Qjr2023" target="_blank">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/fang0000" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="mailto:fang.liu@northeastern.edu">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
+                <p>&copy; 2025 Fang Liu. Built with passion for great software.</p>
+            </div>
         </div>
     </footer>
+
+    <script src="scripts/streamlined-main.js"></script>
 </body>
 </html>
