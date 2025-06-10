@@ -1,225 +1,242 @@
 /**
- * Enhanced portfolio website JavaScript
- * Author: Fang Liu
- * Version: 2.0
+ * Streamlined Portfolio JavaScript
+ * Focus on essential functionality for job search portfolio
  */
 
-// Initialize all functions when DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    if (document.getElementById('date-time-button')) {
-        initDateTime();
-    }
-    initActiveNavLinks();
-    initScrollAnimations();
-    initProjectFilters();
+    initSmoothScrolling();
+    initActiveNavigation();
+    initAnimations();
+    initDynamicBackground();
+    initParallaxEffects();
 });
 
 /**
- * Theme toggle function - handles dark/light mode switching
+ * Smooth scrolling for anchor links
  */
-function initThemeToggle() {
-    const themeButton = document.getElementById('theme-toggle');
-    const body = document.body;
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-theme');
-        themeButton.textContent = 'Light Mode';
-    } else {
-        themeButton.textContent = 'Dark Mode';
-    }
-
-    // Toggle theme on button click
-    themeButton.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        const isDark = body.classList.contains('dark-theme');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        themeButton.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-    });
-
-    // Also check for system preference if no saved preference
-    if (!savedTheme) {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            body.classList.add('dark-theme');
-            themeButton.textContent = 'Light Mode';
-            localStorage.setItem('theme', 'dark');
-        }
-    }
-}
-
-/**
- * Date/Time display functionality
- */
-function initDateTime() {
-    const dateRadio = document.getElementById('date-radio');
-    const timeRadio = document.getElementById('time-radio');
-    const button = document.getElementById('date-time-button');
-    const output = document.getElementById('date-time-output');
-
-    // Show date/time on button click
-    button.addEventListener('click', () => {
-        updateDateTime();
-    });
-
-    // Also update when radio selection changes
-    dateRadio.addEventListener('change', () => {
-        if (output.textContent) {
-            updateDateTime();
-        }
-    });
-
-    timeRadio.addEventListener('change', () => {
-        if (output.textContent) {
-            updateDateTime();
-        }
-    });
-
-    // Function to update date/time display
-    function updateDateTime() {
-        const now = new Date();
-        if (dateRadio.checked) {
-            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-            output.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
-        } else {
-            output.textContent = now.toLocaleTimeString('en-US', {
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            });
+function initSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
-            // For time, update every second
-            if (timeRadio.checked) {
-                clearInterval(window.timeInterval);
-                window.timeInterval = setInterval(() => {
-                    const updatedTime = new Date();
-                    output.textContent = updatedTime.toLocaleTimeString('en-US', {
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit',
-                        hour12: true
-                    });
-                }, 1000);
-            } else {
-                clearInterval(window.timeInterval);
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const offset = 100;
+                const targetPosition = targetElement.offsetTop - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
-        }
-    }
-
-    // Show date by default on page load
-    updateDateTime();
+        });
+    });
 }
 
 /**
- * Highlight active page in navigation
+ * Highlight active navigation link
  */
-function initActiveNavLinks() {
-    const currentPageUrl = window.location.pathname;
+function initActiveNavigation() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.main-nav a');
     
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // Check if the current page matches this nav link
-        if (currentPageUrl.endsWith(linkPath)) {
-            link.classList.add('active');
-        } else if (currentPageUrl.includes('/pages/') && linkPath === '../index.html' && currentPageUrl.endsWith('index.html')) {
-            link.classList.add('active');
-        } else if (!currentPageUrl.includes('/pages/') && linkPath === 'index.html') {
+        const linkPage = link.getAttribute('href').split('/').pop();
+        if (linkPage === currentPage) {
             link.classList.add('active');
         }
     });
 }
 
 /**
- * Add scroll animations to elements
+ * Simple fade-in animations on scroll
  */
-function initScrollAnimations() {
-    // Add animation classes to elements as they scroll into view
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.section, .skill-card, .project-card, .hobby-card, .timeline-item');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            // Add animation class when element is in viewport
-            if (elementPosition < windowHeight - 100) {
-                element.classList.add('animate');
-            }
-        });
+function initAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
     
-    // Add animation class to first elements on page load
-    setTimeout(animateOnScroll, 100);
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
     
-    // Add animation class on scroll
-    window.addEventListener('scroll', animateOnScroll);
+    // Animate sections
+    const elementsToAnimate = document.querySelectorAll('.section, .skill-category, .project-card, .timeline-item');
+    elementsToAnimate.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+}
+
+// Add header shadow on scroll
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+    }
+});
+
+/**
+ * Initialize dynamic background effects
+ */
+function initDynamicBackground() {
+    // Create tech particles container
+    const particlesContainer = document.createElement('div');
+    particlesContainer.className = 'tech-particles';
+    
+    // Create floating tech particles
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'tech-particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 15 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        particlesContainer.appendChild(particle);
+    }
+    
+    document.body.appendChild(particlesContainer);
+    
+    // Create matrix rain effect for sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach((section, index) => {
+        if (index % 2 === 0) {
+            const matrixBg = document.createElement('div');
+            matrixBg.className = 'tech-bg';
+            matrixBg.style.zIndex = '0';
+            section.style.position = 'relative';
+            section.appendChild(matrixBg);
+        }
+    });
+    
+    // Add cyber grid animation
+    const cyberGrid = document.createElement('canvas');
+    cyberGrid.id = 'cyber-grid';
+    cyberGrid.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0.03;
+    `;
+    document.body.appendChild(cyberGrid);
+    
+    // Initialize cyber grid animation
+    initCyberGrid(cyberGrid);
 }
 
 /**
- * Project filtering functionality (for projects page)
+ * Cyber grid animation
  */
-function initProjectFilters() {
-    const filterButtons = document.querySelectorAll('.filter-button');
-    const projectCards = document.querySelectorAll('.project-card');
+function initCyberGrid(canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                
-                // Get filter value
-                const filter = button.getAttribute('data-filter');
-                
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filter === 'all') {
-                        card.style.display = 'block';
-                    } else {
-                        const tags = card.querySelectorAll('.project-tag');
-                        let hasTag = false;
-                        
-                        tags.forEach(tag => {
-                            if (tag.textContent.toLowerCase() === filter.toLowerCase()) {
-                                hasTag = true;
-                            }
-                        });
-                        
-                        if (hasTag) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
+    const gridSize = 50;
+    const nodes = [];
+    
+    // Create grid nodes
+    for (let x = 0; x < canvas.width; x += gridSize) {
+        for (let y = 0; y < canvas.height; y += gridSize) {
+            if (Math.random() > 0.8) {
+                nodes.push({
+                    x: x,
+                    y: y,
+                    radius: Math.random() * 3 + 1,
+                    pulse: Math.random() * Math.PI * 2
                 });
-            });
-        });
+            }
+        }
     }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw connections
+        ctx.strokeStyle = 'rgba(14, 165, 233, 0.2)';
+        ctx.lineWidth = 1;
+        
+        nodes.forEach((node, i) => {
+            // Find nearby nodes
+            nodes.forEach((otherNode, j) => {
+                if (i !== j) {
+                    const dx = node.x - otherNode.x;
+                    const dy = node.y - otherNode.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < gridSize * 2) {
+                        ctx.beginPath();
+                        ctx.moveTo(node.x, node.y);
+                        ctx.lineTo(otherNode.x, otherNode.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            
+            // Draw nodes
+            node.pulse += 0.02;
+            const radius = node.radius + Math.sin(node.pulse) * 0.5;
+            
+            ctx.fillStyle = 'rgba(14, 165, 233, 0.5)';
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 }
 
-// Add smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+/**
+ * Parallax effects for sections
+ */
+function initParallaxEffects() {
+    const sections = document.querySelectorAll('.section');
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
         
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 100,
-                behavior: 'smooth'
-            });
-        }
+        sections.forEach((section, index) => {
+            const rate = scrolled * -0.5;
+            const yPos = -(scrolled * 0.01 * (index + 1));
+            
+            // Apply subtle parallax to alternating sections
+            if (index % 2 === 0) {
+                section.style.transform = `translateY(${yPos}px)`;
+            }
+        });
     });
-});
+    
+    // Mouse move gradient effect
+    document.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        document.body.style.setProperty('--mouse-x', x);
+        document.body.style.setProperty('--mouse-y', y);
+    });
+}
